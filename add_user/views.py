@@ -11,7 +11,7 @@ def index(request):
 			return HttpResponse('/thanks/')
 	else:
 		form = input_form()
-	return render(request,'name.html',{'form': form})
+	return render(request,'add.html',{'form': form})
 
 def calc(request):
 	def clean_phone(my_phone):
@@ -51,4 +51,5 @@ def calc(request):
 	c.execute(statement)
 	conn.commit()
 	conn.close()
-	return HttpResponse(statement)
+	body = "<h4> your information has been successfully added</h4>"
+	return render(request,'background.html', {'body': body})
