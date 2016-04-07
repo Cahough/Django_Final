@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import input_form
 import sqlite3
 
+# Test comment from Carter to make sure git is set up properly
 # Create your views here.
 def index(request):
 	if request.method == 'POST':
