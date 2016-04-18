@@ -1,7 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from .forms import input_form
-import sqlite3
+from list.models import my_contacts
 
 # Test comment from Carter to make sure git is set up properly
 # Create your views here.
@@ -40,17 +40,11 @@ def calc(request):
 			temp = temp[0:20]
 		return temp
 
-	first = clean_name(str(request.POST['first_name']))
-	last = clean_name(str(request.POST['last_name']))
-	email = clean_email(str(request.POST['email']))
-	phone = clean_phone(str(request.POST['phone']))
-	conn = sqlite3.connect('db.sqlite3')
-	c = conn.cursor()
-	statement = "INSERT INTO contact(first,last,phone,email) Values( '"
-	statement = statement+first+"', '" +last+"', "+phone+", '"+email+"' )"
-	c = conn.cursor()
-	c.execute(statement)
-	conn.commit()
-	conn.close()
+	first_name = clean_name(str(request.POST['first_name']))
+	last_name = clean_name(str(request.POST['last_name']))
+	_email = clean_email(str(request.POST['email']))
+	_phone = clean_phone(str(request.POST['phone']))
+	a = my_contacts(first=first_name,last=last_name,email=_email,phone=int(_phone))
+	a.save()
 	body = "<h4> your information has been successfully added</h4>"
-	return render(request,'background.html', {'body': body})
+	return redirect('http://127.0.0.1:8000/')
