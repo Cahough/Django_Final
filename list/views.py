@@ -2,64 +2,72 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import list_form
 from list.models import my_contacts
-#import contact
+from django import forms
+from django.forms.formsets import formset_factory
+from list.forms import *
 
 # Create your views here.
 def index(request):
-	response = """	<style>
-			.button-container form,
-			.button-container form div{
-        			display: inline;
-			}
+	list = my_contacts.objects.all()	
+	#my_formset = formset_factory(list_form, extra=len(list))
+	#data = {'first':'alex','last':'martinez','email':'email','phone':3033333333}
+	#formset=my_formset(data)
+	#if request.method == "POST":
+		#formset = my_formset(request.POST)
+		#if formset.is_valid():
+			#message="thank you"
+		#else:
+		#	message = "something is wrong"
+	data = '<h1>list of contacts</h1><body>'
+	#data += '<a href="http://127.0.0.1:8000/last_order'
+        #data += '">last</a>'
+        #data += '<a href="heep://127.0.0.1:800/first_order' 
+        #data += '"first</a>'
+	for l in list:
+		temp = '<a href="http://do_action/'
+		temp += str(l.id)+'">'
+		temp += l.last + ', '+l.first+'</a> <br><br>'
+		data += temp
+		print(temp)
+	return HttpResponse(data)
 
-			.button-container button {
-        			display: inline;
-        			vertical-align: middle;
-			}
-			</style>
-			<h1>this is a list of all your contacts</h1>
-			<div class="button-container">
-				<form action="http://127.0.0.1:8000/search">
-        				<div>
-                				<button type="submit"> search page</button>
-        				</div>
-				</form>
-				<form action="http://127.0.0.1:8000/add">
-        				<div>
-                				<button type="submit">add page</button>
-        				</div>
-				</form>
-				<form action="http://127.0.0.1:8000">
-        				<div>
-                				<button type="submit">home page</button>
-        				</div>
-				</form>
-				<form action="http://127.0.0.1:8000/list">
-        				<div>
-                				<button type="submit">show contacts</button>
-        				</div>
-				</form>
-			</div>"""
-	response += '<body><br><br><br>'
-	for object in my_contacts.objects.all():
-		response += 'FIRST: '+str(object.first)
-		response += '<br>'
-		response += 'LAST: '+str(object.last)
-		response += '<br>'
-		response += 'EMAIL: '+str(object.email)
-		response += '<br>'
-		response += 'PHONE: '+str(object.phone)
-		response += '<br><br>'
-	response += '</body>'
-	return HttpResponse(response)
+"""def first_order(request):
+	list = my_contacts.objects.orderby("first")
 
-def do_action(request):
-	first = str(request.POST['firstname'])
-	last = str(request.POST['lastname'])
-	email = str(request.POST['email'])
-	phone = str(request.POST['phone'])
-	respone = first.last.email.phone
-	return HttpResponse(response)
+	data = '<h1>list of contacts</h1><body>'
+
+	#data += '<a href="http://127.0.0.1:8000/last_order'
+        #data += '">last</a>'
+        #data += '<a href="heep://127.0.0.1:800/first_order' 
+        #data += '">first</a>'
+
+        for l in list:
+                temp = '<a href="http://do_action/'
+                temp += str(l.id)+'">'
+                temp += l.first + ', '+l.last+'</a> <br><br>'
+                data += temp
+                print(temp)
+        return HttpResponse(data)
 
 
+def last_order(request):
+	list = my_contacts.objects.all()
 
+        data = '<h1>list of contacts</h1><body>'
+	#data += '<a href="http://127.0.0.1:8000/last_order'
+	#data += '">last</a>'
+	#data += '<a href="heep://127.0.0.1:800/first_order'
+	#data += '">first</a>'
+        for l in list:
+                temp = '<a href="http://do_action/'
+                temp += str(l.id)+'">'
+                temp += l.last + ', '+l.first+'</a> <br><br>'
+                data += temp
+                print(temp)
+        return HttpResponse(data)
+
+def show grades(request):
+	
+
+
+"""

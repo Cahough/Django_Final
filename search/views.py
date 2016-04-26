@@ -26,7 +26,7 @@ def do_search(request):
         		vertical-align: middle;
 		}
 		</style>
-		<h1>put in what you know and press search</h1>
+		<h1>these are the results that we found</h1>
 		<div class="button-container">
 		<form action="http://127.0.0.1:8000/search">
         		<div>

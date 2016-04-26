@@ -1,4 +1,6 @@
 from django.db import models
+from django.forms import ModelForm
+from django import forms
 
 # Create your models here.
 class my_contacts(models.Model):
@@ -13,3 +15,4 @@ class my_contacts(models.Model):
 		temp_string += self.email
 		temp_string += str(self.phone)
 		return temp_string
+
