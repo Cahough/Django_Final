@@ -35,17 +35,52 @@
 </form>
 </div>
 <br><br>
-
-<body>
-<form action="calc/" method="post">
-        {% csrf_token %}
-        {{ formset.management_form }}
-	{% for form in formset%}
-		{{ form.as_p }}
-		<input type="submit" value="update">
-		<input type="submit" value="delete"><br><br>
-	{% endfor %}
+<div class="button-container">
+<form action="http://127.0.0.1:8000/list/first_name">
+        <div>
+                <button type="submit">first name</button>
+        </div>
 </form>
+<form action="http://127.0.0.1:8000/list/last_name">
+        <div>
+                <button type="submit">last name</button>
+        </div>
+</form>
+<form action="http://127.0.0.1:8000/list/by_phone">
+        <div>
+                <button type="submit">phone</button>
+        </div>
+</form>
+<form action="http://127.0.0.1:8000/list/by_email">
+        <div>
+                <button type="submit">email</button>
+        </div>
+</form>
+</div><br><br><br>
+<body>
+<table border="1">
+	<th>user id </th>
+	<th>first name</th>
+	<th>last name</th>
+	<th>email </th>
+	<th>phone #</th>
+	<th>go to contact</th>
+	{% for event in events%}
+		<tr>
+		<form action="http://127.0.0.1:8000/do_action" method="post">
+		{% csrf_token %}
+		{% for x in event %}
+		<input type="hidden" name={{ x }} value={{ x }}>
+			<td>
+			{{ x }}
+			</td>
+		{% endfor %}
+		<td><input type="submit" value="see info"></td>
+		</form>
+		</tr>
+	{% endfor %}
+</table>
+
 </body>
 </html>
 
