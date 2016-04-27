@@ -36,22 +36,22 @@
 </div>
 <br><br>
 <div class="button-container">
-<form action="http://127.0.0.1:8000/list/first_name">
+<form action="http://127.0.0.1:8000/list/first_name/">
         <div>
                 <button type="submit">first name</button>
         </div>
 </form>
-<form action="http://127.0.0.1:8000/list/last_name">
+<form action="http://127.0.0.1:8000/list/last_name/">
         <div>
                 <button type="submit">last name</button>
         </div>
 </form>
-<form action="http://127.0.0.1:8000/list/by_phone">
+<form action="http://127.0.0.1:8000/list/by_phone/">
         <div>
                 <button type="submit">phone</button>
         </div>
 </form>
-<form action="http://127.0.0.1:8000/list/by_email">
+<form action="http://127.0.0.1:8000/list/by_email/">
         <div>
                 <button type="submit">email</button>
         </div>
@@ -67,14 +67,14 @@
 	<th>go to contact</th>
 	{% for event in events%}
 		<tr>
-		<form action="http://127.0.0.1:8000/do_action" method="post">
+		<form action="http://127.0.0.1:8000/do_action/" method="post">
 		{% csrf_token %}
 		{% for x in event %}
-		<input type="hidden" name={{ x }} value={{ x }}>
 			<td>
 			{{ x }}
 			</td>
 		{% endfor %}
+		<input type="hidden" name="uid" value={{ x.0 }}>
 		<td><input type="submit" value="see info"></td>
 		</form>
 		</tr>

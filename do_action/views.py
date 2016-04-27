@@ -1,9 +1,16 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from list.models import my_contacts
+from .forms import input_form
 
 def index(request):
-    pass
+	if request.method == 'POST':
+		form = input_form(request.POST)
+		if form.is_valid():
+			return HttpResponse('/thanks/')
+	else:
+		form = input_form()
+	return render(request,'search.html',{'form': form})
 
 def delete(request):
     first_name = str(request.POST['first_name'])
@@ -16,6 +23,6 @@ def delete(request):
     return redirect('http://127.0.0.1:8000/')
 
 
-def udpate(request):
+def update(request):
     pass
 

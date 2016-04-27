@@ -24,5 +24,6 @@ urlpatterns = [
 	url(r'^list/',include('list.urls')),
 	url(r'^add/', include('add_user.urls')),
 	url(r'^search/', include('search.urls')),
+	url(r'^do_action/', include('do_action.urls')),
     #url(r'^admin/', admin.site.urls),
 ]
