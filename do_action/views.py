@@ -4,13 +4,15 @@ from list.models import my_contacts
 from .forms import input_form
 
 def index(request):
-	if request.method == 'POST':
+	response = 'the uid is: '+request.POST['uid']
+	"""if request.method == 'POST':
 		form = input_form(request.POST)
 		if form.is_valid():
 			return HttpResponse('/thanks/')
 	else:
 		form = input_form()
-	return render(request,'search.html',{'form': form})
+	return render(request,'do_action.html',{'form': form})"""
+	return HttpResponse(response)
 
 def delete(request):
     first_name = str(request.POST['first_name'])

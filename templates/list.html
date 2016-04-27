@@ -67,16 +67,18 @@
 	<th>go to contact</th>
 	{% for event in events%}
 		<tr>
-		<form action="http://127.0.0.1:8000/do_action/" method="post">
-		{% csrf_token %}
 		{% for x in event %}
 			<td>
 			{{ x }}
 			</td>
 		{% endfor %}
-		<input type="hidden" name="uid" value={{ x.0 }}>
-		<td><input type="submit" value="see info"></td>
+		<td>
+		<form action="http://127.0.0.1:8000/do_action/" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="uid" value="{{ event.0 }}">
+		<input type="submit" value="see info">
 		</form>
+		</td>
 		</tr>
 	{% endfor %}
 </table>
