@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from .forms import login_form
 from list.models import login_info
+import hashlib
 
 def index(request):
 	if request.method =='POST':
@@ -16,6 +17,8 @@ def index(request):
 def home(request):
 	uname = request.POST['username']
 	passw = request.POST['password']
+	object = hashlib.sha256(passw.encode())
+	passw = object.hexdigest()
 	list = login_info.objects.filter(username = uname)
 	if len(list) > 0:
 		for l in list:

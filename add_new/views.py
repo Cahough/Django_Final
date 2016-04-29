@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import add_form
 from list.models import login_info
+import hashlib
 
 def index(request):
 	if request.method == 'POST':
@@ -17,9 +18,11 @@ def do_add(request):
 	pass1 = request.POST['password']
 	pass2 = request.POST['password2']
 	if pass1 == pass2:
+		pass1 = str(pass1)
+		word = hashlib.sha256(pass1.encode())
 		list = login_info.objects.all()
 		my_id = len(list) + 1
-		a = login_info(id=my_id,username=uname,password=pass_)
+		a = login_info(id=my_id,username=uname,password=word.hexdigest())
 		a.save()
 		return redirect('http://127.0.0.1:8000/add_new/')
 	else:
