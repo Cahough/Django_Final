@@ -20,7 +20,9 @@ import list.views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-	url(r'^$', web_page.views.index, name="home"),
+	url(r'^$', web_page.views.index, name="login"),
+	url(r'^home/',web_page.views.home, name="home"),
+	url(r'^add_new/',include('add_new.urls')),
 	url(r'^list/',include('list.urls')),
 	url(r'^add/', include('add_user.urls')),
 	url(r'^search/', include('search.urls')),

@@ -1,3 +1,5 @@
+                GNU nano 2.2.6                                    File: add.html                                                                                
+
 <!DOCTYPE html>
 <html>
 <title>Add Page</title>
@@ -34,9 +36,8 @@
                   right: 0;
                   left: 57%;
                   width: 100px;
-                  height: 100px;
-              }
-              .jumbotron h1 {
+		}
+		.jumbotron h1 {
                 font-family: "Times New Roman", Times, serif;
                 color: #00CC66;
                 text-indent: 50px;
@@ -55,7 +56,7 @@
                 clear: left;
                 text-align: right;
                 padding-right: 10px;
-                color: gold
+		color: gold
               }
 
               input, label {
@@ -73,12 +74,12 @@
         </div>
 </form>
 <form action="http://127.0.0.1:8000/add">
-        <div>
-                  <button href="http://127.0.0.1:8000/add" type="submit" method="get" class="btn btn-success btn-lg btn-space ">Add Page
+        <div>		
+		<button href="http://127.0.0.1:8000/add" type="submit" method="get" class="btn btn-success btn-lg btn-space ">Add Page
 
         </div>
 </form>
-<form action="http://127.0.0.1:8000/add_new/">
+<form action="http://127.0.0.1:8000/add_new">
         <div>
                 <button href="http://127.0.0.1:8000" type="submit" method="get" class="btn btn-success btn-lg btn-space">Add User
 
@@ -94,11 +95,12 @@
 <br><br>
 
 <body>
-<form action="calc/" method="post">
-	{% csrf_token %}
-	{{ form }}
-<button type="submit" method="get" class="btn btn-danger btn-lg ">Submit
+<form action="do_add/" method="post">
+        {% csrf_token %}
+        {{ form }}
+<button type="submit" method="get" class="btn btn-danger btn-lg ">add user
 
 </form>
 </body>
 </html>
+

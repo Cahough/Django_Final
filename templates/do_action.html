@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Add Page</title>
+<title>Search Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -61,9 +61,10 @@
               input, label {
                 float:left;
               }
-      </style>
+
+	</style>
       <div class="jumbotron other-color">
-        <h1><b>Add a Contact</b></h1>
+        <h1><b>Enter Info to Search For</b></h1>
       </div>
 <div class="button-container">
 <form action="http://127.0.0.1:8000/search">
@@ -92,13 +93,13 @@
 </form>
 </div>
 <br><br>
-
 <body>
-<form action="calc/" method="post">
-	{% csrf_token %}
-	{{ form }}
-<button type="submit" method="get" class="btn btn-danger btn-lg ">Submit
-
+<br><br>
+<form action="do_search/" method="post">
+    {% csrf_token %}
+    {{ form }}
+<button type="submit" value="search" class="btn btn-danger btn-lg">Search
 </form>
 </body>
 </html>
+
