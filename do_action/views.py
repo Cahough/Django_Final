@@ -26,6 +26,7 @@ def delete(request):
     #contact = my_contacts.objects.get(pk=uid)
     #contact.delete()
     body = "<h4> Contact sucessfully deleted. </h4>"
+    #HttpResponseRedirect('http://127.0.0.1:8000/', response)
     return redirect('http://127.0.0.1:8000/')
 
 
