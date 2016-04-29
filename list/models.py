@@ -16,3 +16,10 @@ class my_contacts(models.Model):
 		temp_string += str(self.phone)
 		return temp_string
 
+class login_info(models.Model):
+	username = models.CharField(max_length=20)
+	password = models.CharField(max_length=100)
+
+	def __str__(self):
+		temp = self.username+self.password
+		return temp

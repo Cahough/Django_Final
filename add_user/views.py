@@ -47,4 +47,4 @@ def calc(request):
 	a = my_contacts(first=first_name,last=last_name,email=_email,phone=int(_phone))
 	a.save()
 	body = "<h4> your information has been successfully added</h4>"
-	return redirect('http://127.0.0.1:8000/')
+	return redirect('http://127.0.0.1:8000/add_user/')
