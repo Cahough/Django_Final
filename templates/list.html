@@ -78,6 +78,10 @@
 		<input type="hidden" name="uid" value="{{ event.0 }}">
 		<input type="submit" value="see info">
 		</form>
+            <form action="http://127.0.0.1:8000/do_action/delete/" method="post">
+                {% csrf_token %}
+                <input type="submit" value="delete">
+            </form>
 		</td>
 		</tr>
 	{% endfor %}
