@@ -33,8 +33,8 @@ def delete(request):
     email = str(request.POST['email'])
     phone = str(request.POST['phone'])
 
-    x = my_contacts.objects.filter(first__contains=first_name, last__contains=last_name, email__contains=email, phone__contains=phone).delete()
-    x.save()
+    x = my_contacts.objects.filter(first=first_name, last=last_name, email=email, phone=phone)
+    x.delete()
 
     #contact = my_contacts.objects.get(pk=uid)
     #contact.delete()

@@ -98,7 +98,11 @@
 <form action="do_search/" method="post">
     {% csrf_token %}
     {{ form }}
-<button type="submit" value="search" class="btn btn-danger btn-lg">Search
+<button type="submit" value="search" class="btn btn-danger btn-lg">Search</button>
+</form>
+<form action="delete/" method="post">
+    {% csrf_token %}
+    <input type="submit" value="delete">
 </form>
 </body>
 </html>
