@@ -104,6 +104,7 @@
     {% csrf_token %}
     <input type="submit" value="delete">
 </form>
+<a href="{% url 'delete' my_contact.uid %}">Delete</a>
 </body>
 </html>
 

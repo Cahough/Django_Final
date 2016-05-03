@@ -10,7 +10,7 @@
 # to fix this you will need to remove the contains portion of the object filter
 # and make sure that it must be equal to the user.
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from list.models import my_contacts
 from .forms import input_form
@@ -27,21 +27,26 @@ def index(request):
 
     return HttpResponse(response)
 
-def delete(request):
-    first_name = str(request.POST['first_name'])
-    last_name = str(request.POST['last_name'])
-    email = str(request.POST['email'])
-    phone = str(request.POST['phone'])
+# def delete(request):
+#     first_name = str(request.POST['first_name'])
+#     last_name = str(request.POST['last_name'])
+#     email = str(request.POST['email'])
+#     phone = str(request.POST['phone'])
+#
+#     x = my_contacts.objects.filter(first=first_name, last=last_name, email=email, phone=phone)
+#     x.delete()
+#
+#     #contact = my_contacts.objects.get(pk=uid)
+#     #contact.delete()
+#     body = "<h4> Contact sucessfully deleted. </h4>"
+#     #HttpResponseRedirect('http://127.0.0.1:8000/', response)
+#     return redirect('http://127.0.0.1:8000/')
 
-    x = my_contacts.objects.filter(first=first_name, last=last_name, email=email, phone=phone)
-    x.delete()
-
-    #contact = my_contacts.objects.get(pk=uid)
-    #contact.delete()
-    body = "<h4> Contact sucessfully deleted. </h4>"
-    #HttpResponseRedirect('http://127.0.0.1:8000/', response)
+def delete(request, student_id):
+    #student = Student.objects.get(pk=student_id)
+    contact = get_object_or_404(my_contacts, pk=student_id)
+    contact.delete()
     return redirect('http://127.0.0.1:8000/')
-
 
 def update(request):
     pass
