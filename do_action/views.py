@@ -1,53 +1,38 @@
-# to start you need to make a form in the index filling out the parts of the
-# form with the first name, last name, phone, and email. from there you 
-# need to put two buttons on the html page that this page will use as
-# a template. to see an example look at the template called add.html
-# it will look very similar. you will need to make the actions of those
-# buttons to be "delete/" and "update/". On the delete portion you will
-# want to retrieve the information from the form like you are already doing
-# however instead of doing x.save you will do x.delete(). Also the way it 
-# is set up now it could delete a contact that is similar to the name entered
-# to fix this you will need to remove the contains portion of the object filter
-# and make sure that it must be equal to the user.
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from list.models import my_contacts
 from .forms import input_form
 
 def index(request):
+    first, last, phone, email = "", "", "", ""
+    uid = 0
     response = 'the uid is: '+request.POST['uid']
-    """if request.method == 'POST':
-        form = input_form(request.POST)
-        if form.is_valid():
-            return HttpResponse('/thanks/')
-    else:
-        form = input_form()
-    return render(request,'do_action.html',{'form': form})"""
+    contact = my_contacts.objects.filter(id=request.POST['uid'])
+    for c in contact:
+        first=c.first
+        last=c.last
+        phone=c.phone
+        email=c.email
+        uid=c.id
+        print(first+last+str(phone)+email)
+    return render(request,'do_action.html',{'uid':uid,'first_name': first, 'last_name':last, 'phone':phone, 'email':email})
 
-    return HttpResponse(response)
-
-# def delete(request):
-#     first_name = str(request.POST['first_name'])
-#     last_name = str(request.POST['last_name'])
-#     email = str(request.POST['email'])
-#     phone = str(request.POST['phone'])
-#
-#     x = my_contacts.objects.filter(first=first_name, last=last_name, email=email, phone=phone)
-#     x.delete()
-#
-#     #contact = my_contacts.objects.get(pk=uid)
-#     #contact.delete()
-#     body = "<h4> Contact sucessfully deleted. </h4>"
-#     #HttpResponseRedirect('http://127.0.0.1:8000/', response)
-#     return redirect('http://127.0.0.1:8000/')
-
-def delete(request, student_id):
-    #student = Student.objects.get(pk=student_id)
-    contact = get_object_or_404(my_contacts, pk=student_id)
-    contact.delete()
-    return redirect('http://127.0.0.1:8000/')
+def delete(request):
+    uid = str(request.POST['uid'])
+    x = my_contacts.objects.filter(id=uid)
+    x.delete()
+    return redirect('http://127.0.0.1:8000/list/')
 
 def update(request):
-    pass
-
+    x = my_contacts.objects.filter(id=str(request.POST['uid']))
+    first_ = str(request.POST['first_name'])
+    last_ = str(request.POST['last_name'])
+    email_ = str(request.POST['email'])
+    phone_ = str(request.POST['phone'])
+    for contact in x:
+        contact.first = first_
+        contact.last = last_
+        contact.email = email_
+        contact.phone = phone_
+        contact.save()
+    return redirect('http://127.0.0.1:8000/list/')

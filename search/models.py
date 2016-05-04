@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-Class my_contacts(models.Model):
+class my_contacts(models.Model):
         first = models.CharField(max_length=20)
         last = models.CharField(max_length=20)
         email = models.CharField(max_length=50)

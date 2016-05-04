@@ -8,7 +8,7 @@ class my_contacts(models.Model):
 	last = models.CharField(max_length=20)
 	email = models.CharField(max_length=50)
 	phone = models.IntegerField()
-	
+
 	def __str__(self):
 		temp_string = self.first
 		temp_string += self.last

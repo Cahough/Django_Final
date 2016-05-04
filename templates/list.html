@@ -1,92 +1,134 @@
 <!DOCTYPE html>
 <html>
-<style>
-.button-container form,
-.button-container form div{
-        display: inline;
-}
+<title>All of the Contacts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-.button-container button {
-        display: inline;
-        vertical-align: middle;
-}
+    <style>
+          .button-container form,
+          .button-container form div{
+                  display: inline;
+          }
+          .wrapper {
+            text-align: center;
+          }
+
+          body {
+            background-color: #888888;
+          }
+          .btn-space {
+            margin-right: 15px;
+          }
+          .other-color{
+            background: #006633;
+          }
+          div {
+            text-indent: 50px;
+          }
+          div.relative {
+              position: absolute;
+              bottom: 300px;
+              right: 0;
+              left: 57%;
+              width: 100px;
+              height: 100px;
+          }
+          .jumbotron h1 {
+            font-family: "Times New Roman", Times, serif;
+            color: #00CC66;
+            text-indent: 50px;
+          }
+          h1{
+            font-family: "Times New Roman", Times, serif;
+            color: #006600;
+            right: 200px;
+            text-align: center;
+          }
+          input, label {
+            float:left;
+          }
+          table.center {
+             margin-left:auto;
+             margin-right:auto;
+           }
 </style>
-<h1> put in the information you wish to submit and then press submit</h1>
-<div class="button-container">
+<body>
+  <div class="jumbotron other-color">
+      <h1><b>List of Contacts</b></h1>
+  </div>
+
+<div class="button-container wrapper">
 <form action="http://127.0.0.1:8000/search">
         <div>
-                <button type="submit"> search page</button>
+                <button type="submit" method="get" class="btn btn-success btn-lg btn-space "> search page</button>
         </div>
 </form>
 <form action="http://127.0.0.1:8000/add">
         <div>
-                <button type="submit">add page</button>
+                <button type="submit" method="get" class="btn btn-success btn-lg btn-space ">add page</button>
         </div>
 </form>
 <form action="http://127.0.0.1:8000/add_new/">
         <div>
-                <button type="submit">add user</button>
+                <button type="submit" method="get" class="btn btn-success btn-lg btn-space ">add user</button>
         </div>
 </form>
 <form action="http://127.0.0.1:8000/list">
         <div>
-                <button type="submit">show contacts</button>
+                <button type="submit" method="get" class="btn btn-success btn-lg btn-space ">show contacts</button>
         </div>
 </form>
-</div>
-<br><br>
-<div class="button-container">
+</div><br><br>
+
+<div class="button-container wrapper">
 <form action="http://127.0.0.1:8000/list/first_name/">
         <div>
-                <button type="submit">first name</button>
+                <button type="submit" method="get" class="btn btn-success btn-lg btn-space ">first name</button>
         </div>
 </form>
 <form action="http://127.0.0.1:8000/list/last_name/">
         <div>
-                <button type="submit">last name</button>
+                <button type="submit" method="get" class="btn btn-success btn-lg btn-space ">last name</button>
         </div>
 </form>
 <form action="http://127.0.0.1:8000/list/by_phone/">
         <div>
-                <button type="submit">phone</button>
+                <button type="submit" method="get" class="btn btn-success btn-lg btn-space ">phone</button>
         </div>
 </form>
 <form action="http://127.0.0.1:8000/list/by_email/">
         <div>
-                <button type="submit">email</button>
+                <button type="submit" method="get" class="btn btn-success btn-lg btn-space " >email</button>
         </div>
 </form>
 </div><br><br><br>
-<body>
-<table border="1">
-	<th>user id </th>
-	<th>first name</th>
-	<th>last name</th>
-	<th>email </th>
-	<th>phone #</th>
-	<th>go to contact</th>
-	{% for event in events%}
-		<tr>
-		{% for x in event %}
-			<td>
-			{{ x }}
-			</td>
-		{% endfor %}
-		<td>
-		<form action="http://127.0.0.1:8000/do_action/" method="post">
-		{% csrf_token %}
-		<input type="hidden" name="uid" value="{{ event.0 }}">
-		<input type="submit" value="see info">
-		</form>
-            <form action="{% url 'delete' event.0 %}" method="post">
-		    {% csrf_token %}
-                <input type="hidden" name="uid" value="{% url 'delete' event.0 %}">
-		        <input type="submit" value="delete">
-		</form>
-		</tr>
-	{% endfor %}
-</table>
 
+      <table border ="3" class="center">
+      	<th>user id </th>
+      	<th>first name</th>
+      	<th>last name</th>
+      	<th>email </th>
+      	<th>phone #</th>
+      	<th>go to contact</th>
+      	{% for event in events%}
+      		<tr>
+      		{% for x in event %}
+      			<td>
+      			{{ x }}
+      			</td>
+      		{% endfor %}
+      		<td>
+      		<form action="http://127.0.0.1:8000/do_action/" method="post">
+      		{% csrf_token %}
+      		<input type="hidden" name="uid" value="{{ event.0 }}">
+      		<input type="submit" value="see info">
+      		</form>
+      		</td>
+      		</tr>
+      	{% endfor %}
+      </table>
 </body>
 </html>
-

@@ -6,7 +6,7 @@ from django import forms
 class login_info(models.Model):
 	username = models.CharField(max_length=20)
 	password = models.CharField(max_length=100)
-	
+
 	def __str__(self):
 		temp_string = self.username
 		temp_string += self.password

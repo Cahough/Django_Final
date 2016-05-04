@@ -95,16 +95,20 @@
 <br><br>
 <body>
 <br><br>
-<form action="do_search/" method="post">
+<form action="update/" method="post">
     {% csrf_token %}
-    {{ form }}
-<button type="submit" value="search" class="btn btn-danger btn-lg">Search</button>
+<input type="text" name="first_name" value="{{ first_name }}"><br>
+<input type="text" name="last_name" value="{{ last_name }}"><br>
+<input type="text" name="email" value="{{ email }}"><br>
+<input type="text" name="phone" value="{{ phone }}"><br>
+<input type="hidden" name="uid" value="{{ uid }}">
+<button type="submit" value="search" class="btn btn-danger btn-lg">update</button>
 </form>
 <form action="delete/" method="post">
     {% csrf_token %}
-    <input type="submit" value="delete">
+    <input type="hidden" name="uid" value="{{ uid }}">
+    <button type="submit" value="delete" class="btn btn-danger btn-lg">delete</button>
 </form>
-<a href="{% url 'delete' my_contact.uid %}">Delete</a>
 </body>
 </html>
 
