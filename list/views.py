@@ -18,7 +18,7 @@ def index(request):
         x.append(l.email)
         x.append(l.phone)
         events.append(x)
-    return render(request, 'list.html',{'events':events})
+    return render(request, 'list/list.html',{'events':events})
 
 def first_name(request):
     list = my_contacts.objects.order_by('first')
@@ -31,7 +31,7 @@ def first_name(request):
         x.append(l.email)
         x.append(l.phone)
         events.append(x)
-    return render(request, 'list.html',{'events':events})
+    return render(request, 'list/list.html',{'events':events})
 
 def last_name(request):
     list = my_contacts.objects.order_by('last')
@@ -44,7 +44,7 @@ def last_name(request):
         x.append(l.email)
         x.append(l.phone)
         events.append(x)
-    return render(request, 'list.html',{'events':events})
+    return render(request, 'list/list.html',{'events':events})
 
 def by_phone(request):
     list = my_contacts.objects.order_by('phone')
@@ -57,7 +57,7 @@ def by_phone(request):
         x.append(l.email)
         x.append(l.phone)
         events.append(x)
-    return render(request, 'list.html',{'events':events})
+    return render(request, 'list/list.html',{'events':events})
 
 def by_email(request):
     list = my_contacts.objects.order_by('email')
@@ -70,4 +70,4 @@ def by_email(request):
         x.append(l.email)
         x.append(l.phone)
         events.append(x)
-    return render(request, 'list.html',{'events':events})
+    return render(request, 'list/list.html',{'events':events})

@@ -11,7 +11,7 @@ def index(request):
 			return HttpResponse('/thanks/')
 	else:
 		form = add_form()
-	return render(request,'add_new.html',{'form': form})
+	return render(request,'add_new/add_new.html',{'form': form})
 
 def do_add(request):
 	uname = request.POST['username']
@@ -26,4 +26,4 @@ def do_add(request):
 		a.save()
 		return redirect('http://127.0.0.1:8000/add_new/')
 	else:
-		return render(request, 'not_same.html', {'password1':pass1, 'password2':pass2})
+		return render(request, 'add_new/not_same.html', {'password1':pass1, 'password2':pass2})

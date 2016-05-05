@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<title>Add Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <style>
+              .button-container form,
+              .button-container form div{
+                      display: inline;
+              }
+
+              .button-container button {
+                      display: inline;
+                      vertical-align: middle;
+              }
+              body {
+                background-color: #888888;
+              }
+              .btn-space {
+                margin-right: 15px;
+              }
+              .other-color{
+                background: #006633;
+              }
+              div {
+                text-indent: 50px;
+              }
+              div.relative {
+                  position: absolute;
+                  bottom: 300px;
+                  right: 0;
+                  left: 57%;
+                  width: 100px;
+		}
+		.jumbotron h1 {
+                font-family: "Times New Roman", Times, serif;
+                color: #00CC66;
+                text-indent: 50px;
+              }
+              .jumbotron p{
+                font-family: "Times New Roman", Times, serif;
+                color: gold;
+              }
+              h1{
+                font-family: "Times New Roman", Times, serif;
+                color: #006600;
+                right: 200px;
+              }
+              label {
+                width: 180px;
+                clear: left;
+                text-align: right;
+                padding-right: 10px;
+		color: gold
+              }
+
+              input, label {
+                float:left;
+              }
+      </style>
+      <div class="jumbotron other-color">
+        <h1><b>Add a Contact</b></h1>
+      </div>
+<div class="button-container">
+<form action="http://127.0.0.1:8000/search">
+        <div>
+                  <button href="http://127.0.0.1:8000/search" type="submit" method="get" class="btn btn-success btn-lg btn-space ">Search Page
+
+        </div>
+</form>
+<form action="http://127.0.0.1:8000/add">
+        <div>		
+		<button href="http://127.0.0.1:8000/add" type="submit" method="get" class="btn btn-success btn-lg btn-space ">Add Page
+
+        </div>
+</form>
+<form action="http://127.0.0.1:8000/add_new">
+        <div>
+                <button href="http://127.0.0.1:8000" type="submit" method="get" class="btn btn-success btn-lg btn-space">Add User
+
+        </div>
+</form>
+<form action="http://127.0.0.1:8000/list">
+        <div>
+                <button href="http://127.0.0.1:8000/my_list" type="submit" method="get" class="btn btn-success btn-lg btn-space">Show Contacts
+
+        </div>
+</form>
+</div>
+<br><br>
+
+<body>
+<form action="do_add/" method="post">
+        {% csrf_token %}
+        {{ form }}
+<button type="submit" method="get" class="btn btn-danger btn-lg ">add user
+
+</form>
+</body>
+</html>
+

@@ -12,7 +12,7 @@ def index(request):
 			return HttpResponse('/thanks/')
 	else:
 		form = input_form()
-	return render(request,'add.html',{'form': form})
+	return render(request,'add_user/add.html',{'form': form})
 
 def calc(request):
 	def clean_phone(my_phone):

@@ -11,7 +11,7 @@ def index(request):
 			return HttpResponse('/thanks/')
 	else:
 		form = search_form()
-	return render(request,'search.html', {'form': form})
+	return render(request,'search/search.html', {'form': form})
 
 def do_search(request):
 	first_name = str(request.POST['first_name'])
@@ -28,4 +28,4 @@ def do_search(request):
 		x.append(l.email)
 		x.append(l.phone)
 		events.append(x)
-	return render(request, 'do_search.html',{'events':events})
+	return render(request, 'search/do_search.html',{'events':events})
