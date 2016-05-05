@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# urls.py
+
+# Defines primary urls for various app functions such as searching, adding new user, adding new contact, editing, deleting, etc.
+
 """web_page URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:

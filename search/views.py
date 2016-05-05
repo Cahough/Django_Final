@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# search/views.py
+
+# Defines functions for performing a search for a contact in the address book.
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import search_form

@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# add_user/models.py
+
+# Defines my_contact class that holds contact info.
+
 from django.db import models
 
 # Create your models here.

@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# do_action/urls.py
+
+# Defines url for editing and deleting a contact.
+
 from django.conf.urls import url
 
 from . import views

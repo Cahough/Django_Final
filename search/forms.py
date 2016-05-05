@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# search/forms.py
+
+# Defines search form class for searching for a contact in address book.
+
 from django import forms
 
 class search_form(forms.Form):

@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# search/models.py
+
+# Defines my_contacts class for accessing contact info to search for.
+
 from django.db import models
 
 # Create your models here.

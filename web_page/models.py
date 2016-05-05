@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# models.py
+
+# Defines primary login_info class
+
 from django.db import models
 from django.forms import ModelForm
 from django import forms

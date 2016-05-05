@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# list/views.py
+
+# Defines functions for showing all contacts in address book.
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import list_form

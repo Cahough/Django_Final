@@ -1,4 +1,10 @@
-from django import forms
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# do_action/forms.py
+
+# Defines form creation for editing and deleting a contact.
 
 class input_form(forms.Form):
         first_name = forms.CharField(label='first name',max_length=30)

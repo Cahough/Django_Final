@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# list/urls.py
+
+# Defines urls for showing on contacts based on different sort-by fields.
+
 from django.conf.urls import url
 
 from . import views
