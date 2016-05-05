@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# do_action/views.py
+
+# Defines update and delete functions for editing and deleting a contact.
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from list.models import my_contacts

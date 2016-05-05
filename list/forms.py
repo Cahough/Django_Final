@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# list/forms.py
+
+# Defines input form class for showing all contacts in address book.
+
 from django import forms
 
 class list_form(forms.Form):

@@ -1,3 +1,11 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# add_new/views.py
+
+# Defines add user function views to create a new admin user.
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import add_form

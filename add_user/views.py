@@ -1,9 +1,16 @@
+# Alex Martinez, Carter Hough, Kevin Chlopek
+# 05.05.16
+# CS 310 - Python
+# Django Project
+# add_user/urls.py
+
+# Defines add user info for adding a new contact to the address book.
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import input_form
 from list.models import my_contacts
 
-# Test comment from Carter to make sure git is set up properly
 # Create your views here.
 def index(request):
 	if request.method == 'POST':
