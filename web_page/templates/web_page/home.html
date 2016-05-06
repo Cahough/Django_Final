@@ -10,14 +10,11 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <style>
             body {
-              background-color: #888888;
-            }
-            .other-color{
-              background: #006633;
+              background-color: #2C3539;
             }
             div.relative {
                 position: absolute;
-                bottom: 300px;
+                bottom: 230px;
                 right: 0;
                 left: 57%;
                 width: 100px;
@@ -25,39 +22,32 @@
             }
             .jumbotron h1 {
               font-family: "Times New Roman", Times, serif;
-              color: #00CC66;
+              color: black;
               text-indent: 50px;
             }
-            .jumbotron p{
-              font-family: "Times New Roman", Times, serif;
-              color: gold;
+            .jumbotron {
+              background-image: url('../../static/address.jpg'); background-size: 100%;
+              height: 250px;
+              margin-top: 30px;
+              margin-right: 20px;
+              margin-left: 20px;
             }
             h1{
               font-family: "Times New Roman", Times, serif;
-              color: #006600;
+              color: #4CC552;
               right: 200px;
             }
-            label {
-              width: 180px;
-              clear: left;
-              text-align: right;
-              padding-right: 10px;
-              color: gold
-            }
 
-            input, label {
-              float:left;
-            }
       </style>
 </head>
 
-<div class="jumbotron other-color">
+<div class="jumbotron">
   <h1><b>Welcome to your Contacts Book</b></h1>
 </div>
 
 <body>
   <div class="container">
-    <h1><b>Please Choose an Option</b></h1><br><br>
+    <h1><b>Please Choose an Option :</b></h1><br><br>
     <div class="container">
             <form class="form-vertical" action="http://127.0.0.1:8000/list" method="get">
               <form class="form-group">
@@ -93,7 +83,7 @@
           </form>
     </div>
     <div class="relative">
-          <img src="../../static/django.png" alt="Logos" height="300" width="300">
+          <img  src="../../static/django.png" height="300" width="300">
         </div>
       </div>
     </div>

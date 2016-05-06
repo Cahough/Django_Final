@@ -14,13 +14,7 @@ from list.models import login_info
 import hashlib
 
 def index(request):
-	if request.method =='POST':
-		form = login_form(request.POST)
-		if form.is_valid():
-			return HttpResponse('/thanks/')
-	else:
-		form = login_form()
-	return render(request,'web_page/login.html', {'form': form})
+	return render(request,'web_page/login.html',{'username':'username', 'password':'password'})
 
 def home(request):
 	uname = request.POST['username']

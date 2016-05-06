@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Add Page</title>
+<title>New User Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -11,19 +11,27 @@
               .button-container form div{
                       display: inline;
               }
-
-              .button-container button {
-                      display: inline;
-                      vertical-align: middle;
+              .wrapper {
+                text-align: center;
+              }
+              .wrapper h1 {
+                color: #4CC552;
+              }
+              .wrapper label {
+                color: #4CC552;
               }
               body {
-                background-color: #888888;
+                background-color: #2C3539;
               }
               .btn-space {
                 margin-right: 15px;
               }
-              .other-color{
-                background: #006633;
+              .jumbotron {
+                background-image: url('../../static/address.jpg'); background-size: 100%;
+                height: 250px;
+                margin-top: 30px;
+                margin-right: 20px;
+                margin-left: 20px;
               }
               div {
                 text-indent: 50px;
@@ -34,71 +42,87 @@
                   right: 0;
                   left: 57%;
                   width: 100px;
-		}
-		.jumbotron h1 {
-                font-family: "Times New Roman", Times, serif;
-                color: #00CC66;
-                text-indent: 50px;
+                  height: 100px;
               }
-              .jumbotron p{
+              .jumbotron h1 {
                 font-family: "Times New Roman", Times, serif;
-                color: gold;
+                color: black;
+                text-align: center;
               }
               h1{
                 font-family: "Times New Roman", Times, serif;
-                color: #006600;
+                color: #4CC552;
                 right: 200px;
               }
-              label {
-                width: 180px;
-                clear: left;
-                text-align: right;
-                padding-right: 10px;
-		color: gold
-              }
-
               input, label {
                 float:left;
               }
       </style>
+<body>
       <div class="jumbotron other-color">
-        <h1><b>Add a Contact</b></h1>
+        <h1><b>New User</b></h1>
       </div>
-<div class="button-container">
-<form action="http://127.0.0.1:8000/search">
+<div class="button-container wrapper">
+<form action="http://127.0.0.1:8000/search/">
         <div>
-                  <button href="http://127.0.0.1:8000/search" type="submit" method="get" class="btn btn-success btn-lg btn-space ">Search Page
+                  <button href="http://127.0.0.1:8000/search/" type="submit" method="get" class="btn btn-success btn-lg btn-space ">Search Contact
 
         </div>
 </form>
-<form action="http://127.0.0.1:8000/add">
-        <div>		
-		<button href="http://127.0.0.1:8000/add" type="submit" method="get" class="btn btn-success btn-lg btn-space ">Add Page
+<form action="http://127.0.0.1:8000/add/">
+        <div>
+                  <button href="http://127.0.0.1:8000/add/" type="submit" method="get" class="btn btn-success btn-lg btn-space ">Add Contact
 
         </div>
 </form>
-<form action="http://127.0.0.1:8000/add_new">
+<form action="http://127.0.0.1:8000/add_new/">
         <div>
-                <button href="http://127.0.0.1:8000" type="submit" method="get" class="btn btn-success btn-lg btn-space">Add User
+                <button href="http://127.0.0.1:8000/add_new/" type="submit" method="get" class="btn btn-success btn-lg btn-space">Add User
 
         </div>
 </form>
-<form action="http://127.0.0.1:8000/list">
+<form action="http://127.0.0.1:8000/list/">
         <div>
-                <button href="http://127.0.0.1:8000/my_list" type="submit" method="get" class="btn btn-success btn-lg btn-space">Show Contacts
+                <button href="http://127.0.0.1:8000/list/" type="submit" method="get" class="btn btn-success btn-lg btn-space">Show Contacts
 
         </div>
 </form>
 </div>
 <br><br>
 
-<body>
-<form action="do_add/" method="post">
-        {% csrf_token %}
-        {{ form }}
-<button type="submit" method="get" class="btn btn-danger btn-lg ">add user
 
+  <div class="wrapper">
+    <form action="do_add/" method="post">
+      <div class="container">
+            <h1><b>Please Enter User Information :</b></h1><br>
+                <form class="form-horizontal" action="do_add/" method="post">
+		{% csrf_token %}
+                  <div class="form-group">
+                        <label for="firstName" class="col-sm-2 control-label"> User-Name: </label>
+                          <div class="col-sm-10">
+                                <input type="text" class="form-control" name="{{ username }}" placeholder="Username"><br><br>
+                          </div>
+                  </div>
+                  <div class=form-group>
+                        <label for="lastName" class="col-sm-2 control-label"> Password: </label>
+                          <div class="col-sm-10">
+                                <input type="password" class="form-control" name="{{ password1 }}" placeholder="Password"><br><br>
+                          </div>
+                  </div>
+                  <div class=form-group>
+                        <label for="username" class="col-sm-2 control-label"> Re-Enter : </label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="{{ password2 }}" placeholder="Re-Enter Password"><br><br>
+                            </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                         <input href="do_add/" type="submit" method="post" class="btn btn-danger btn-block"> Create </button>
+                    </div>
+                  </div>
+    </form>
+  </div>
 </form>
+</div>
 </body>
 </html>
-

@@ -13,13 +13,7 @@ from list.models import my_contacts
 # Create your views here.
 
 def index(request):
-	if request.method =='POST':
-		form = search_form(request.POST)
-		if form.is_valid():
-			return HttpResponse('/thanks/')
-	else:
-		form = search_form()
-	return render(request,'search/search.html', {'form': form})
+	return render(request,'search/search.html', {'first_name': 'first_name', 'last_name':'last_name','email':'email','phone':'phone'})
 
 def do_search(request):
 	first_name = str(request.POST['first_name'])
@@ -28,6 +22,8 @@ def do_search(request):
 	_phone = str(request.POST['phone'])
 	list = my_contacts.objects.filter(first__contains=first_name, last__contains=last_name, email__contains=_email, phone__contains=_phone)
 	events = []
+	amount = len(list)
+	print(amount)
 	for l in list:
 		x = []
 		x.append(l.id)
@@ -36,4 +32,4 @@ def do_search(request):
 		x.append(l.email)
 		x.append(l.phone)
 		events.append(x)
-	return render(request, 'search/do_search.html',{'events':events})
+	return render(request, 'search/do_search.html',{'events':events, 'num':str(amount)})

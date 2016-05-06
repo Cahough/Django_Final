@@ -13,13 +13,7 @@ from list.models import my_contacts
 
 # Create your views here.
 def index(request):
-	if request.method == 'POST':
-		form = input_form(request.POST)
-		if form.is_valid():
-			return HttpResponse('/thanks/')
-	else:
-		form = input_form()
-	return render(request,'add_user/add.html',{'form': form})
+	return render(request,'add_user/add.html/',{'first_name': 'first_name','last_name':'last_name','email':'email','phone':'phone'})
 
 def calc(request):
 	def clean_phone(my_phone):
