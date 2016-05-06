@@ -31,7 +31,7 @@ def delete(request):
     return redirect('http://127.0.0.1:8000/list/')
 
 def update(request):
-    x = my_contacts.objects.filter(id=str(request.POST['uid']))
+    x = my_contacts.objects.filter(id=str(request.POST['id']))
     first_ = str(request.POST['first_name'])
     last_ = str(request.POST['last_name'])
     email_ = str(request.POST['email'])
