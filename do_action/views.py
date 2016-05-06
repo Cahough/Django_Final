@@ -22,7 +22,6 @@ def index(request):
         phone=c.phone
         email=c.email
         uid=c.id
-        print(first+last+str(phone)+email)
     return render(request,'do_action/do_action.html',{'uid':uid,'first_name': first, 'last_name':last, 'phone':phone, 'email':email})
 
 def delete(request):

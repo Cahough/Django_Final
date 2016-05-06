@@ -5,9 +5,9 @@
 # add_user/forms.py
 
 # Defines input form class for user to input first name, last name, phone, and email contact info.
-
+from django import forms
 class input_form(forms.Form):
-        first_name = forms.CharField(label='first name',max_length=30)
-        last_name = forms.CharField(label='last name',max_length=30)
-        email = forms.CharField(label='email',max_length=30)
-        phone = forms.CharField(label='phone',max_length=30)
+	first_name = forms.CharField(label='first name',max_length=30)
+	last_name = forms.CharField(label='last name',max_length=30)
+	email = forms.CharField(label='email',max_length=30)
+	phone = forms.CharField(label='phone',max_length=30)
